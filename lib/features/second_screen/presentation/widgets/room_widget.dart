@@ -107,51 +107,38 @@ class RoomWidget extends StatelessWidget{
                   height: 10.h,
                 ),
                 Padding(
-                  padding: EdgeInsets
-                      .only(
-                      left: 15.0
-                          .h),
+                  padding: EdgeInsets.only(left: 15.0.h),
                   child: Column(
-                    crossAxisAlignment:
-                    CrossAxisAlignment
-                        .start,
-                    children: [
-                      Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment
-                            .spaceBetween,
-                        children: [
-                          const Text(
-                              'Age of Child 1'),
-                          const Spacer(
-                            flex:
-                            1,
-                          ),
-                          SizedBox(
-                            width:
-                            100.w,
-                            height:
-                            40.h,
-                            child: DefaultFormField(
-                              controller:
-                              ageController,
-                              maxLines:
-                              1,
-                              inputType:
-                              TextInputType.number,
-                              hasBorder:
-                              false,
-                              borderRadius:
-                              0.0,
-                              fillColor: Colors.white,
-                              hintText: "14 years",
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: List.generate(
+                      SecondScreenCubit.get(context).childrenCounter,
+                          (index) {
+                        TextEditingController ageController = TextEditingController();
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('Age of Child ${index + 1}'),
+                            Spacer(flex: 1),
+                            SizedBox(
+                              width: 100.w,
+                              height: 40.h,
+                              child: DefaultFormField(
+                                controller: ageController,
+                                maxLines: 1,
+                                inputType: TextInputType.number,
+                                hasBorder: false,
+                                borderRadius: 0.0,
+                                fillColor: Colors.white,
+                                hintText: "14 years",
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    ],
+                          ],
+                        );
+                      },
+                    ),
                   ),
-                )
+                ),
+
               ],
             ),
           ),
