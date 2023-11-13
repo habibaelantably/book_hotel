@@ -97,36 +97,48 @@ class BookingContainer extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 8.h),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20.r)),
-                          child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                height: 60,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                      width: 1,
-                                      color: Colors.blue,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15.r)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8.0),
-                                  child: Row(
-                                    children: const [
-                                      Text("22-11-2023"),
-                                      Text("==>"),
-                                      Text("24-11-2023"),
-                                      Spacer(
-                                        flex: 1,
+                        InkWell(
+                          onTap: ()async{
+                            FirstScreenCubit.get(context).dateTimeRange=
+                            await showDateRangePicker(
+                                context: context,
+                                firstDate: DateTime.now().subtract(Duration(days: 365)), // Assuming one year ago
+                                lastDate: DateTime.now().add(Duration(days: 365)), // Assuming one year from now
+                                initialDateRange: FirstScreenCubit.get(context).dateTimeRange,);
+                            FirstScreenCubit.get(context).chooseDate();
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20.r)),
+                            child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        width: 1,
+                                        color: Colors.blue,
                                       ),
-                                      Icon(Icons.cancel_outlined)
-                                    ],
+                                      borderRadius: BorderRadius.circular(15.r)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Row(
+                                      children:  [
+                                        Text("${FirstScreenCubit.get(context).selectedDates.start.day}-${FirstScreenCubit.get(context).selectedDates.start.month}-${FirstScreenCubit.get(context).selectedDates.start.year}"
+                                        ),
+                                        const Text("==>"),
+                                        Text("${FirstScreenCubit.get(context).selectedDates.end.day}-${FirstScreenCubit.get(context).selectedDates.end.month}-${FirstScreenCubit.get(context).selectedDates.end.year}"),
+                                        const Spacer(
+                                          flex: 1,
+                                        ),
+                                        const Icon(Icons.cancel_outlined)
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              )),
+                                )),
+                          ),
                         ),
                         SizedBox(height: 8.h),
                         Container(

@@ -40,7 +40,8 @@ class NumberOfRooms extends StatelessWidget{
                   buttonIcon: Icons.add,
                   onPressed: () {
                     SecondScreenCubit.get(context).addRoomCounter();
-                  },)
+                  },
+                  isButtonEnabled: true,)
 
               ],
             ),

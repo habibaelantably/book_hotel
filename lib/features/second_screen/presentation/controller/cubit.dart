@@ -10,6 +10,10 @@ class SecondScreenCubit extends Cubit<SecondScreenStates>{
   int roomCounter=1;
   int adultsCounter=1;
   int childrenCounter=0;
+  bool isPlusChildrenPlusButtonEnabled=true;
+  bool isPlusAdultsPlusButtonEnabled=true;
+  int maxChildrenNumber=4;
+  int maxAdultsNumber=2;
 
 
   void changePetSwitch(){
@@ -33,8 +37,13 @@ class SecondScreenCubit extends Cubit<SecondScreenStates>{
   }
   void addAdultCounter()
   {
-    adultsCounter++;
-    emit(PlusAdultsCounterState(adultsCounter));
+    if(canAddMoreAdults()){
+      isPlusAdultsPlusButtonEnabled=true;
+      adultsCounter++;
+      emit(PlusAdultsCounterState(adultsCounter));
+    }else{
+      isPlusAdultsPlusButtonEnabled=false;
+    }
   }
   void minusAdultCounter()
   {
@@ -45,8 +54,14 @@ class SecondScreenCubit extends Cubit<SecondScreenStates>{
   }
   void addChildrenCounter()
   {
-    childrenCounter++;
-    emit(PlusChildrenCounterState(childrenCounter));
+    if(canAddMoreChildren()){
+      isPlusChildrenPlusButtonEnabled=true;
+      childrenCounter++;
+      emit(PlusChildrenCounterState(childrenCounter));
+    }else{
+      isPlusChildrenPlusButtonEnabled=false;
+    }
+
   }
   void minusChildrenCounter()
   {
@@ -55,5 +70,18 @@ class SecondScreenCubit extends Cubit<SecondScreenStates>{
       emit(MinusChildrenCounterState(childrenCounter));
     }
   }
+
+  bool canAddMoreChildren() {
+    return childrenCounter < maxChildrenNumber;
+  }
+  bool canAddMoreAdults() {
+    return adultsCounter < maxAdultsNumber;
+  }
+
+
+
+
+
+
 
 }

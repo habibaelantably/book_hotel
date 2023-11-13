@@ -30,7 +30,6 @@ class RoomWidget extends StatelessWidget{
           child: Padding(
             padding: EdgeInsets
                 .all(
-
                 8.0.h),
             child: Column(
               crossAxisAlignment:
@@ -67,7 +66,7 @@ class RoomWidget extends StatelessWidget{
                       onPressed:
                           () {
                         SecondScreenCubit.get(context).addAdultCounter();
-                      },
+                      }, isButtonEnabled:  SecondScreenCubit.get(context).isPlusAdultsPlusButtonEnabled,
                     )
                   ],
                 ),
@@ -99,7 +98,7 @@ class RoomWidget extends StatelessWidget{
                       onPressed:
                           () {
                         SecondScreenCubit.get(context).addChildrenCounter();
-                      },
+                      }, isButtonEnabled: SecondScreenCubit.get(context).isPlusChildrenPlusButtonEnabled,
                     )
                   ],
                 ),
@@ -118,7 +117,7 @@ class RoomWidget extends StatelessWidget{
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text('Age of Child ${index + 1}'),
-                            Spacer(flex: 1),
+                            const Spacer(flex: 1),
                             SizedBox(
                               width: 100.w,
                               height: 40.h,
@@ -138,7 +137,6 @@ class RoomWidget extends StatelessWidget{
                     ),
                   ),
                 ),
-
               ],
             ),
           ),

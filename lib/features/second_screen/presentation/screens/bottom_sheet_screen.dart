@@ -27,86 +27,88 @@ class BottomSheetContent extends StatelessWidget{
                   .height *
                   0.9,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 45.h,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color:
-                          Colors.grey[300]!,
-                          blurRadius: 5,
-                          offset: const Offset(
-                              4,
-                              8), // Shadow position
-                        ),
-                      ],
-                      borderRadius:
-                      BorderRadius.only(
-                          topLeft: Radius
-                              .circular(
-                              20.r),
-                          topRight: Radius
-                              .circular(
-                              20.r))),
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        right: 8.0.h,
-                        left: 100.h),
-                    child: Row(
-                      children: [
-                        const Text(
-                            "Rooms and Guestes"),
-                        SizedBox(width: 75.w),
-                        const Icon(Icons
-                            .cancel_outlined),
-                      ],
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 45.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color:
+                            Colors.grey[300]!,
+                            blurRadius: 5,
+                            offset: const Offset(
+                                4,
+                                8), // Shadow position
+                          ),
+                        ],
+                        borderRadius:
+                        BorderRadius.only(
+                            topLeft: Radius
+                                .circular(
+                                20.r),
+                            topRight: Radius
+                                .circular(
+                                20.r))),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          right: 8.0.h,
+                          left: 100.h),
+                      child: Row(
+                        children: [
+                          const Text(
+                              "Rooms and Guestes"),
+                          SizedBox(width: 75.w),
+                          const Icon(Icons
+                              .cancel_outlined),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 10.0.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const NumberOfRooms(),
-                      SizedBox(height: 20.h,),
-                      const RoomWidget(),
-                      const SizedBox(height: 20,),
-                      const PetFriendlyWidget(),
-                      SizedBox(height: 170.h,),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width:300.w, // Set your desired width
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0), // Adjust the value to control roundness
-                                  ),
-                                ),
-                                child: const Text("APPLY"),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
+                  SizedBox(
+                    height: 20.h,
                   ),
-                )
-              ],
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 10.0.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const NumberOfRooms(),
+                        SizedBox(height: 20.h,),
+                        const RoomWidget(),
+                        const SizedBox(height: 20,),
+                        const PetFriendlyWidget(),
+                        SizedBox(height: 170.h,),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width:300.w, // Set your desired width
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5.0), // Adjust the value to control roundness
+                                    ),
+                                  ),
+                                  child: const Text("APPLY"),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );
