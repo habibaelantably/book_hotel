@@ -51,7 +51,7 @@ class RoomWidget extends StatelessWidget{
                             .minimize,
                         onPressed:
                             () {
-                          SecondScreenCubit.get(context).minusChildrenCounter();
+                          SecondScreenCubit.get(context).minusAdultCounter();
                         }),
                     SizedBox(
                       width: 10.w,

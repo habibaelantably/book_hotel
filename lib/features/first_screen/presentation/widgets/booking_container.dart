@@ -146,10 +146,10 @@ class BookingContainer extends StatelessWidget {
                                 value: FirstScreenCubit.get(context)
                                     .selectedDropDownValue,
                                 items: <String>[
-                                  'Dog',
-                                  'Cat',
-                                  'Tiger',
-                                  'Lion'
+                                  'Egyptian',
+                                  'Italian',
+                                  'German',
+                                  'Turkish'
                                 ].map<DropdownMenuItem<String>>((String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
