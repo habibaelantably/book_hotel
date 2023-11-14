@@ -95,6 +95,7 @@ class BookingContainer extends StatelessWidget {
                               borderColor: Colors.blue,
                               hintText: "Select City",
                               textAlign: TextAlign.center,
+                              hintTextColor: Colors.blue,
                             ),
                           ),
                         ),
