@@ -20,6 +20,7 @@ class DefaultFormField extends StatelessWidget {
   final Color? fillColor;
   final double? width;
   final double? height;
+  final Color? hintTextColor;
 
   final Function()? onTap;
   final void Function(String)? onChanged;
@@ -43,6 +44,7 @@ class DefaultFormField extends StatelessWidget {
     this.fillColor,
     this.width,
     this.height,
+    this.hintTextColor,
     required this.hasBorder,
   }) : super(key: key);
 
@@ -67,7 +69,7 @@ class DefaultFormField extends StatelessWidget {
         hintText: hintText ,
         labelStyle:
         const TextStyle(color: Colors.grey),
-        hintStyle: TextStyle(color: Colors.grey),
+        hintStyle: TextStyle(color: hintTextColor),
         enabledBorder:    hasBorder?OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius!),
           borderSide:  BorderSide(

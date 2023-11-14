@@ -1,5 +1,7 @@
 import 'package:book_hotel/features/first_screen/presentation/controller/cubit.dart';
 import 'package:book_hotel/features/first_screen/presentation/controller/state.dart';
+import 'package:book_hotel/features/second_screen/presentation/controller/cubit.dart';
+import 'package:book_hotel/features/second_screen/presentation/controller/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,7 +59,7 @@ class BookingContainer extends StatelessWidget {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 30.0),
+                 EdgeInsets.only(left: 8.0.h, right: 8.0.h, bottom: 35.0.h),
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -102,15 +104,15 @@ class BookingContainer extends StatelessWidget {
                             FirstScreenCubit.get(context).dateTimeRange=
                             await showDateRangePicker(
                                 context: context,
-                                firstDate: DateTime.now().subtract(Duration(days: 365)), // Assuming one year ago
-                                lastDate: DateTime.now().add(Duration(days: 365)), // Assuming one year from now
+                                firstDate: DateTime.now().subtract(const Duration(days: 365)), // Assuming one year ago
+                                lastDate: DateTime.now().add(const Duration(days: 365)), // Assuming one year from now
                                 initialDateRange: FirstScreenCubit.get(context).dateTimeRange,);
                             FirstScreenCubit.get(context).chooseDate();
                           },
                           child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(20.r)),
+                                borderRadius: BorderRadius.circular(15.r)),
                             child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
@@ -120,16 +122,19 @@ class BookingContainer extends StatelessWidget {
                                         width: 1,
                                         color: Colors.blue,
                                       ),
-                                      borderRadius: BorderRadius.circular(15.r)),
+                                      borderRadius: BorderRadius.circular(10.r)),
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 8.0),
                                     child: Row(
                                       children:  [
                                         Text("${FirstScreenCubit.get(context).selectedDates.start.day}-${FirstScreenCubit.get(context).selectedDates.start.month}-${FirstScreenCubit.get(context).selectedDates.start.year}"
+                                            ,style: const TextStyle(color: Colors.blue)
                                         ),
-                                        const Text("==>"),
-                                        Text("${FirstScreenCubit.get(context).selectedDates.end.day}-${FirstScreenCubit.get(context).selectedDates.end.month}-${FirstScreenCubit.get(context).selectedDates.end.year}"),
+                                        const Text("==>",style: TextStyle(color: Colors.blue)),
+                                        Text("${FirstScreenCubit.get(context).selectedDates.end.day}-${FirstScreenCubit.get(context).selectedDates.end.month}-${FirstScreenCubit.get(context).selectedDates.end.year}"
+                                        ,style: const TextStyle(color: Colors.blue)
+                                        ),
                                         const Spacer(
                                           flex: 1,
                                         ),
@@ -207,16 +212,23 @@ class BookingContainer extends StatelessWidget {
                                     backgroundColor: Colors.grey[300],
                                     builder: (_) => const BottomSheetContent());
                               },
-                              child: Row(
-                                mainAxisAlignment:
+                              child: BlocBuilder<SecondScreenCubit,SecondScreenStates>(
+                                builder: (BuildContext context, state) {
+                                  return  Row(
+                                    mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Text("1 room, 2 Adults, 0 children"),
-                                  Icon(
-                                    Icons.keyboard_arrow_down,
-                                    color: Colors.grey[600],
-                                  )
-                                ],
+                                    children: [
+                                      Text("${SecondScreenCubit.get(context).roomCounter},"
+                                          "${SecondScreenCubit.get(context).adultsCounter},"
+                                          "${SecondScreenCubit.get(context).childrenCounter}"),
+                                      Icon(
+                                        Icons.keyboard_arrow_down,
+                                        color: Colors.grey[600],
+                                      )
+                                    ],
+                                  );
+                                },
+
                               ),
                             ),
                           ),

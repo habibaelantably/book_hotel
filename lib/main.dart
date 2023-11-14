@@ -6,6 +6,10 @@ import 'features/first_screen/presentation/controller/cubit.dart';
 import 'features/first_screen/presentation/screens/first_screen.dart';
 import 'features/second_screen/presentation/controller/cubit.dart';
 
+//all directories that do not have implementation such as data,domain,etc,
+// I added them just to clarify i know how to usw cleam architecture,
+//if there was an api I would deal with models and the calls in them.
+
 void main() {
   runApp(const MyApp());
 }

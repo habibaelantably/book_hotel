@@ -63,8 +63,13 @@ class BottomSheetContent extends StatelessWidget{
                           const Text(
                               "Rooms and Guestes"),
                           SizedBox(width: 75.w),
-                          const Icon(Icons
-                              .cancel_outlined),
+                          InkWell(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
+                            child: const Icon(Icons
+                                .cancel_outlined),
+                          ),
                         ],
                       ),
                     ),
@@ -83,7 +88,7 @@ class BottomSheetContent extends StatelessWidget{
                         const RoomWidget(),
                         const SizedBox(height: 20,),
                         const PetFriendlyWidget(),
-                        SizedBox(height: 170.h,),
+                        SizedBox(height: 120.h,),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Row(
@@ -92,7 +97,10 @@ class BottomSheetContent extends StatelessWidget{
                               SizedBox(
                                 width:300.w, // Set your desired width
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+
+                                    Navigator.pop(context);
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5.0), // Adjust the value to control roundness
